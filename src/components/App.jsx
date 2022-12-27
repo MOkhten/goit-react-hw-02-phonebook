@@ -3,6 +3,7 @@ import { Component } from "react";
 import { ContactList } from './ContactList/ContactList';
 import { ContactForm } from './ContactForm/ContactForm';
 import { Filter } from './Filter/Filter';
+import { Phonebook } from './App.styled';
 
 export class App  extends Component {
     state = {
@@ -48,7 +49,7 @@ export class App  extends Component {
   render() {
     const { contacts, filter } = this.state;
     return (
-      <div>
+      <Phonebook>
         <h1>Phonebook</h1>
         <ContactForm onSubmit={this.addContact} contacts={contacts}/>
         <h2>Contacts</h2>
@@ -56,7 +57,7 @@ export class App  extends Component {
         <ContactList
           contacts={this.visibleContacts()}
         onDeleteContact={this.deleteContact}/>
-     </div>
+     </Phonebook>
     );
       
     }

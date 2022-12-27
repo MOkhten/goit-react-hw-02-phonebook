@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Form, FormTitle, Button, Input } from './ContactForm.styled';
 
 export class ContactForm extends Component {
     static defaultProps = {
@@ -44,9 +45,9 @@ export class ContactForm extends Component {
       
         const { name, number } = this.state;
         return (
-            <form className="TodoEditor" onSubmit={this.handleSubmit}>
-                <h2>Name</h2>
-                <input
+            <Form onSubmit={this.handleSubmit}>
+                <FormTitle>Name</FormTitle>
+                <Input
                     value={name}
                     type="text"
                     name="name"
@@ -55,8 +56,8 @@ export class ContactForm extends Component {
                     onChange={this.handleChange}
           
                     required />
-                <h2>Number</h2>
-                <input
+                <FormTitle>Number</FormTitle>
+                <Input
                     value={number}
                     type="tel"
                     name="number"
@@ -64,10 +65,10 @@ export class ContactForm extends Component {
                     title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                     onChange={this.handleChange}
                     required />
-                <button type="submit" className="TodoEditor__button">
+                <Button type="submit">
                     Add contact
-                </button>
-            </form>
+                </Button>
+            </Form>
         );
     }
 }
